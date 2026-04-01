@@ -45,7 +45,7 @@ export default function Login() {
         className="w-full max-w-md bg-[#141414] border border-white/10 rounded-2xl p-8 shadow-2xl"
       >
         <div className="flex justify-center mb-8">
-          <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20">
+          <div className="w-16 h-16 rounded-2xl flex items-center justify-center border bg-blue-500/10 border-blue-500/20">
             <Lock className="w-8 h-8 text-blue-400" />
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="block w-full pl-10 pr-3 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
-                placeholder="admin@example.com"
+                placeholder="user@example.com"
                 required
               />
             </div>
@@ -103,7 +103,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-[#141414] disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-6"
+            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#141414] disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-6 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500"
           >
             {loading ? (
               <Loader2 className="w-5 h-5 animate-spin" />

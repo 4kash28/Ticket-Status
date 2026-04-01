@@ -30,6 +30,8 @@ export default function App() {
     return () => subscription.unsubscribe();
   }, []);
 
+  const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || 'akashramteke1842@gmail.com';
+
   if (loading) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
@@ -43,15 +45,43 @@ export default function App() {
       <Routes>
         <Route 
           path="/login" 
-          element={!session ? <Login /> : <Navigate to="/" replace />} 
+          element={
+            !session ? (
+              <Login />
+            ) : session.user.email === ADMIN_EMAIL ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          } 
         />
         <Route 
           path="/" 
-          element={session ? <MainDashboard /> : <Navigate to="/login" replace />} 
+          element={
+            session ? (
+              session.user.email === ADMIN_EMAIL ? (
+                <Navigate to="/admin" replace />
+              ) : (
+                <MainDashboard />
+              )
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          } 
         />
         <Route 
           path="/admin" 
-          element={session ? <AdminDashboard /> : <Navigate to="/login" replace />} 
+          element={
+            session ? (
+              session.user.email === ADMIN_EMAIL ? (
+                <AdminDashboard />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          } 
         />
       </Routes>
     </BrowserRouter>

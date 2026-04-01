@@ -1,0 +1,5 @@
+{
+  "name": "Pending Ticket Dashboard",
+  "description": "Real-time dashboard for tracking pending user tickets, with an admin interface for manual entry.",
+  "requestFramePermissions": []
+}
